@@ -1,0 +1,34 @@
+= form_with model: @album do |f|
+  = f.label :name
+  = f.text_field :name
+
+  %br/
+
+  = f.label :released_at
+  = f.date_field :released_at
+
+  %br/
+  = f.label :cover_art_url
+  = f.url_field :cover_art_url
+
+  %br/
+
+  = f.label :length
+  = f.time_select :length, {:ampm => false}
+
+  %br/
+  
+  = f.label :kind
+  = f.radio_button :kind, 'Single'
+  = label :kind_single, 'Single'
+  = f.radio_button :kind, 'EP'
+  = label :kind_EP, 'EP'
+  = f.radio_button :kind, 'LP'
+  = label :kind_EP, 'LP' 
+
+  %br/  
+
+  = f.submit
+  
+  %br/
+  = link_to "Back to Albums", albums_path

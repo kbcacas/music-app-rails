@@ -1,0 +1,20 @@
+= form_with model: @song do |s|
+  = s.label :url
+  = s.url_field :url
+  
+  %br/
+  = s.label :name
+  = s.text_field :name
+
+  %br/
+
+  = s.label :credits
+  = s.text_area :credits
+
+  %br/
+
+  = s.submit
+  
+  %br/
+  = link_to "Back to Songs", songs_path
+  

@@ -1,0 +1,38 @@
+%h1 Albums
+
+%table
+  %thread
+    %th Name
+    %th Released at
+    %th Cover Art URL 
+    %th Length
+    %th Kind
+  
+  %tbody
+    - @albums.each do |album|
+      %tr
+        %td
+          = album.name
+        %td
+          = album.released_at
+        %td
+          = album.cover_art_url.truncate(150)
+        %td
+          = album.length 
+        %td
+          = album.kind
+        %td
+          = link_to "Edit", edit_album_path(album.id)
+          = link_to "Delete", album_path(album.id), method: :delete, data: {confirm: "Are you sure?"}
+
+%br/
+= link_to "Add Albums", new_album_path        
+
+%br/
+= link_to "Go to Artists", artists_path
+
+%br/
+= link_to "Go to Tracks", songs_path
+
+%br/
+= link_to "Back to Home", root_path

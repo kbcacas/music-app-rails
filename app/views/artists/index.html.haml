@@ -1,0 +1,44 @@
+%h1 Artists
+
+%table
+  %thread
+    %th Name
+    %th Permalink
+    %th Bio
+    %th Formed at
+    %th Verified at
+    %th Avatar URL 
+    %th Cover photo URL
+
+%tbody
+  - @artists.each do |artist|
+    %tr
+      %td
+        = artist.name
+      %td
+        = artist.permalink
+      %td
+        = artist.bio.truncate(150)
+      %td
+        = artist.formed_at
+      %td
+        = artist.verified_at 
+      %td
+        = artist.avatar_url
+      %td
+        = artist.cover_photo_url
+      %td
+        = link_to "Edit", edit_artist_path(artist.id)
+        = link_to "Delete", artist_path(artist.id), method: :delete, data: {confirm: "Are you sure?"}
+
+%br/
+= link_to "Add Artist", new_artist_path
+
+%br/
+= link_to "Go to Albums", albums_path
+
+%br/
+= link_to "Go to Tracks", songs_path
+
+%br/
+= link_to " Back to Home", root_path
